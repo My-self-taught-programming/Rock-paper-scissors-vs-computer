@@ -1,0 +1,65 @@
+from random import randint
+
+# wins counter
+player_wins = 0
+computer_wins = 0
+
+while player_wins < 2 and computer_wins < 2:
+    # introduction
+    print("--------------------------------------------")
+    print("--   Welcome to Rock Paper Scissors --------")
+    print("-- Pick between Rock, Paper , or Scissors --")
+    print("--------------------------------------------")
+
+    print(f"Player's score: {player_wins}\nComputers score: {computer_wins}")
+
+
+
+    # Player's choice
+    player_choice = input("Player, you must pick Rock, Paper or Scissors.   ").lower()
+    if player_choice == "quit" or player_choice == "q":
+        print("You decided to quit, come back soon!")
+        break
+    # computers options
+    rand_num = randint(0,2)
+    if rand_num == 0:
+        computer = "rock"
+    elif rand_num == 1:
+        computer = "paper"
+    else:
+        computer = "scissors"
+
+    # Possible outcomes
+    if player_choice == "rock":
+        if computer == "scissors":
+            print("Player wins!")
+            player_wins += 1
+        if computer == "paper":
+            print("Computer wins!")
+            computer_wins += 1
+    elif player_choice == "paper":
+        if computer == "rock":
+            print("Player wins!")
+            player_wins += 1
+        if computer == "scissors":
+            print("Computer wins!")
+            computer_wins += 1
+    elif player_choice == "scissors":
+        if computer == "rock":
+            print("Computer wins!")
+            computer_wins += 1
+        if computer == "paper":
+            print("Player wins!")
+            player_wins += 1
+    elif player_choice == computer:
+        print("Looks like its a tie!")
+    else:
+       print("Something went wrong!!")
+
+# Who won?
+if player_wins > computer_wins:
+    print("Congratulations you won!")
+elif player_wins == computer_wins:
+    print("Its a tie!")
+else:
+    print("Oh no you lost, Computer won.")
